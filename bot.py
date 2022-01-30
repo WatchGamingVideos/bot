@@ -11,12 +11,12 @@ import random
 PASSWORD = 'password' #the password for the throwaway accounts..
 
 
-accounts = ['random_throwaway1', 'random_throwaway2', 'etc' ]
-downvoters = ['some','user','to','downvote']
-upvoters = ['some','user','to','upvote']
+accounts = ['MemeBotsBotty', 'KarmaBot', 'FunnyBot8' ]
+downvoters = ['some','user','to','Automoderator']
+upvoters = ['ND318','user','to','upvote']
 
-n_upvotes = 0
-n_downvotes = 0
+n_upvotes = 5
+n_downvotes = 2
 
 already_comment_id = []
 
@@ -61,11 +61,11 @@ def log(string_data):
 
 
 
-r = praw.Reddit(user_agent='Some unique text not containing bot')
+r = praw.Reddit(user_agent='ZR-M8WyBvXxcdSi2DrpXebfVQWBRMQ')
 
 r_login()
 
-subreddit = r.get_subreddit('any subreddit you want')      #lazy so no need to error check..
+subreddit = r.get_subreddit('askreddit')      #lazy so no need to error check..
 
 print '>>>Reddit /r/bitcoin bot..<<<'
 
@@ -92,7 +92,7 @@ while True:
 
                 if comment.author.name in downvoters:
                         #comment.reply('test')
-                    print "downvoted: ", comment.author.name, comment.id
+                    print "Unfair removal: ", comment.author.name, comment.id
                     comment.downvote()
                     n_downvotes+=1
                     logstr = time.strftime("%Y-%m-%d %H:%M:%S")+' downvoted '+comment.author.name+' '+comment.id+'\n'
@@ -100,7 +100,7 @@ while True:
 
 
                 if comment.author.name in upvoters:
-                    print 'match', comment.author.name, comment.id
+                    print 'My Creator!!!', comment.author.name, comment.id
                     logstr = time.strftime("%Y-%m-%d %H:%M:%S")+' upvoted '+comment.author.name+' '+comment.id+'\n'
                     log(logstr)
                     comment.upvote()
